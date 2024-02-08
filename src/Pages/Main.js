@@ -148,7 +148,6 @@ function Main() {
       await uploadImage(file); // 선택된 이미지를 서버로 업로드
     }
   };
-
    // 이미지 업로드 함수
   const uploadImage = async (file) => {
     const formData = new FormData();
