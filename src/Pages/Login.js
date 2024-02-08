@@ -20,9 +20,9 @@ function Login() {
   const userLoginUrl = "https://fs.auth.ap-northeast-2.amazoncognito.com/login?client_id=4ldn0nqfcc1blmob79lepjc3mq&response_type=token&scope=email+openid+phone&redirect_uri=https%3A%2F%2Fwww.sketch-food.com%2Floginweb";
   const adminLoginUrl = "https://fs.auth.ap-northeast-2.amazoncognito.com/login?client_id=4ldn0nqfcc1blmob79lepjc3mq&response_type=token&scope=email+openid+phone&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Floginweb";
  
-   const redirectToLogin = (url) => {
-    window.location.href = `${url}&redirect_uri=/loginweb`; // 리다이렉션 URL 수정
-  }
+const redirectToLogin = (url) => {
+  window.location.href = url; // 직접 주어진 URL을 사용
+}
 
 
   
