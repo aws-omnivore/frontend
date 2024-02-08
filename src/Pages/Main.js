@@ -149,30 +149,31 @@ function Main() {
     }
   };
    // 이미지 업로드 함수
-  const uploadImage = async (file) => {
-    const formData = new FormData();
-    formData.append('image', file); // 서버가 요구하는 필드명으로 파일 추가
+const uploadImage = async (file) => {
+  const formData = new FormData();
+  formData.append('image', file); // 서버가 요구하는 필드명으로 파일 추가
 
   try {
     const response = await axios.post('https://api.sketch-food.com:443/api/v1/extract', formData, {
       headers: {
         // 'Content-Type': 'multipart/form-data'는 Axios가 자동으로 설정합니다.
-        'Authorization': token, // 실제 토큰으로 교체하세요.
+        'Authorization': `Bearer ${token}`, // 'Bearer' 스키마를 사용해야 할 경우
         'Language': language, // 예시로 'en'을 사용했습니다. 필요에 따라 변경하세요.
-        'La': location.latitude,
-        'Lo': location.longitude,
+        'La': location.latitude.toString(), // latitude 값을 문자열로 변환
+        'Lo': location.longitude.toString(), // longitude 값을 문자열로 변환
       },
     });
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const result = await response.json();
-      console.log(result); // 결과 처리, 예: 결과 페이지로 이동
-      navigate('/result', { state: { data: data } });
-    } catch (error) {
-      console.error('Error uploading image:', error);
+    if (response.status !== 200) {
+      throw new Error('Network response was not ok');
     }
-  };
+    // Axios는 자동으로 응답을 JSON으로 파싱합니다.
+    console.log(response.data); // 결과 처리, 예: 결과 페이지로 이동
+    navigate('/result', { state: { data: response.data } });
+  } catch (error) {
+    console.error('Error uploading image:', error);
+    // 오류 처리 로직
+  }
+};
 
   // 파일 입력 요소 참조를 사용하여 파일 선택 이벤트 처리
   const videoRef = useRef(null);
