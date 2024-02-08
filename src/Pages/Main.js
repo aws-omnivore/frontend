@@ -155,7 +155,7 @@ function Main() {
     formData.append('image', file); // 서버가 요구하는 필드명으로 파일 추가
 
   try {
-    const response = await axios.post('http://13.124.244.54:8142/extractor/', formData, {
+    const response = await axios.post('https://api.sketch-food.com:443/api/v1/extract', formData, {
       headers: {
         // 'Content-Type': 'multipart/form-data'는 Axios가 자동으로 설정합니다.
         'Authorization': token, // 실제 토큰으로 교체하세요.
