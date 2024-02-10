@@ -95,7 +95,7 @@ function Record() {
             'Language': language
           }
         };
-        const response = await axios.get('/api/v1/recents', config);
+        const response = await axios.get('https://api.sketch-food.com:443/api/v1/recents', config);
         setStores(response.data);
       } catch (error) {
         console.error('최근 기록 조회 오류', error);
