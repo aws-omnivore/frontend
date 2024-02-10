@@ -127,7 +127,7 @@ function Recommend() {
           }
         };
         try {
-          const response = await axios.get(`https://api.sketch-food.com:443/recomm`, config);
+          const response = await axios.get(`https://api.sketch-food.com:443/api/v1/recomm`, config);
           // 데이터 중복 확인: 이미 로드된 데이터와 다른지 확인
           setStores(response.data);
       } catch (error) {
