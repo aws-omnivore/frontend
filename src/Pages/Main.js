@@ -154,7 +154,7 @@ const uploadImage = async (file) => {
   formData.append('image', file); // 서버가 요구하는 필드명으로 파일 추가
 
   try {
-    const response = await axios.post('/api/v1/extract', formData, {
+    const response = await axios.post('https://api.sketch-food.com:443/api/v1/extract', formData, {
       headers: {
         // 'Content-Type': 'multipart/form-data'는 Axios가 자동으로 설정합니다.
         'Authorization': `Bearer ${token}`, // 'Bearer' 스키마를 사용해야 할 경우
