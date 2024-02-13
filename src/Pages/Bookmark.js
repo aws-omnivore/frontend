@@ -105,7 +105,7 @@ function Bookmark() {
     if (isAlreadyBookmarked) {
       // 북마크 삭제
       try {
-        await axios.delete(`https://api.sketch-food.com:443/api/v1/bookmarks?restaurantId=${store.id}`, config);
+        await axios.delete(`/api/v1/bookmarks?restaurantId=${store.id}`, config);
         const updatedLocalBookmarks = localBookmarks.filter(id => id !== store.id);
         setLocalBookmarks(updatedLocalBookmarks); // 로컬 상태 업데이트
         localStorage.setItem('bookmarks', JSON.stringify(updatedLocalBookmarks)); // 로컬 스토리지 업데이트
@@ -116,7 +116,7 @@ function Bookmark() {
     } else {
       // 북마크 추가
       try {
-        await axios.post(`https://api.sketch-food.com:443/api/v1/bookmarks?restaurantId=${store.id}`, {}, config);
+        await axios.post(`/api/v1/bookmarks?restaurantId=${store.id}`, {}, config);
         const updatedLocalBookmarks = [...localBookmarks, store.id];
         setLocalBookmarks(updatedLocalBookmarks); // 로컬 상태 업데이트
         localStorage.setItem('bookmarks', JSON.stringify(updatedLocalBookmarks)); // 로컬 스토리지 업데이트
