@@ -73,7 +73,8 @@ function Bookmark() {
           'Authorization': `Bearer ${token}`,
           'Language': language,
           'Content-Type': 'application/json'
-        }
+        },
+        withCredentials: true // CORS 요청 시 쿠키/인증 정보를 포함
       };
     const response = await axios.get('https://api.sketch-food.com:443/api/v1/bookmarks', config);
     // 데이터 중복 제거
