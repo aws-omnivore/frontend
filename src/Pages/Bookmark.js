@@ -71,7 +71,8 @@ function Bookmark() {
       const config = {
         headers: {
           'Authorization': `Bearer ${token}`,
-          'Language': language
+          'Language': language,
+          'Content-Type': 'application/json'
         }
       };
     const response = await axios.get('https://api.sketch-food.com:443/api/v1/bookmarks', config);
