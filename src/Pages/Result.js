@@ -54,7 +54,7 @@ const MenuImage = styled.img`
   margin-right: 10px; // 이미지와 텍스트 사이의 여백
 `;
 
-const Information = () => {
+const Result = () => {
   const { storeId } = useParams();
   const [menuDetailsVisible, setMenuDetailsVisible] = useState({});
   const [ setStoreDetails ] = useState(null);
@@ -119,4 +119,4 @@ const Information = () => {
   );
 };
 
-export default Information;
+export default Result;
