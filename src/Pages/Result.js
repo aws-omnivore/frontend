@@ -57,11 +57,13 @@ const MenuImage = styled.img`
 
 const Result = () => {
   const location = useLocation();
-  const storeDetails = location.state?.data; // 네비게이션 상태에서 데이터 접근
+  const [storeDetails, setStoreDetails] = useState(location.state?.data); // 상태와 업데이트 함수 정의
   const [menuDetailsVisible, setMenuDetailsVisible] = useState({});
-  const [ setStoreDetails ] = useState(null);
   const [language, setLanguage] = useState(localStorage.getItem("selectedLanguage") || "en");
-  setStoreDetails(location.state?.data);
+
+  if (!storeDetails) {
+    return <div>No data available</div>;
+  }
 
   const toggleMenuDetails = (menuId) => {
     setMenuDetailsVisible((prev) => ({ ...prev, [menuId]: !prev[menuId] }));
