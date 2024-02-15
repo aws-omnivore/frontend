@@ -62,9 +62,6 @@ const Result = () => {
   const [ setStoreDetails ] = useState(null);
   const [language, setLanguage] = useState(localStorage.getItem("selectedLanguage") || "en");
   setStoreDetails(location.state?.data);
-  if (!storeDetails) {
-    return <div>Loading...</div>;
-  }
 
   const toggleMenuDetails = (menuId) => {
     setMenuDetailsVisible((prev) => ({ ...prev, [menuId]: !prev[menuId] }));
