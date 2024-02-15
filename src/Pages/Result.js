@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import { useLocation } from 'react-router-dom';
 import axios from 'axios'; // axios 임포트
 const InfoContainer = styled.div`
   display: flex;
@@ -55,12 +56,12 @@ const MenuImage = styled.img`
 `;
 
 const Result = () => {
-  const { storeId } = useParams();
+  const location = useLocation();
+  const storeDetails = location.state?.data; // 네비게이션 상태에서 데이터 접근
   const [menuDetailsVisible, setMenuDetailsVisible] = useState({});
   const [ setStoreDetails ] = useState(null);
   const [language, setLanguage] = useState(localStorage.getItem("selectedLanguage") || "en");
-  const storeDetails = state.data; // 넘어온 데이터를 받아옵니다.
-  setStoreDetails(state.data);
+  setStoreDetails(location.state?.data);
   if (!storeDetails) {
     return <div>Loading...</div>;
   }
