@@ -76,7 +76,7 @@ function Bookmark() {
         withCredentials: true
         
       };
-    const response = await axios.get('https://api.sketch-food.com:443/api/v1/bookmarks', config);
+    const response = await axios.get('/api/v1/bookmarks', config);
     // 데이터 중복 제거
     const uniqueData = Array.from(new Set(response.data.map(store => JSON.stringify(store))))
                             .map(item => JSON.parse(item));
