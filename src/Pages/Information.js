@@ -79,7 +79,7 @@ const [language, setLanguage] = useState(localStorage.getItem("selectedLanguage"
           'Language': language
         }
       };
-      const response = await axios.get(`https://api.sketch-food.com:443/api/v1/translate/${storeId}`, config);
+      const response = await axios.get(`/api/v1/translate/${storeId}`, config);
       setStoreDetails(response.data); // API 응답으로 받은 데이터를 상태에 저장
   
   } catch (error) {
