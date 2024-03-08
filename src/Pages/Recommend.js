@@ -176,8 +176,6 @@ if (isAlreadyBookmarked) {
     [store.id]: !prev[store.id],
   }));
 };
-  
-  
   return (
     <div>
       <TitleContainer>
